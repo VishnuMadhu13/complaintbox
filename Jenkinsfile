@@ -45,9 +45,12 @@ pipeline {
     stage('Unit Tests') {
       steps {
         sh '''
-          docker run --rm --volumes-from $JENKINS_CONTAINER -w $WORKSPACE/$APP_DIR \
-            -e DJANGO_SECRET_KEY=ci-only-key -e DJANGO_DEBUG=1 \
-            python:3.12-slim sh -c "pip install -q -r requirements.txt && python manage.py test --noinput"
+          docker run --rm --volumes-from ubuntu-jenkins-1 -w /var/jenkins_home/workspace/complaintbox/. \
+            -e DJANGO_SECRET_KEY=ci-only-key \
+            python:3.9-slim sh -c "apt-get update -qq && \
+            apt-get install -y -qq build-essential pkg-config default-libmysqlclient-dev >/dev/null && \
+            pip install -q -r requirements.txt && \
+            python manage.py test --noinput --settings=complaint_box.settings_ci"
         '''
       }
     }
