@@ -21,7 +21,7 @@ spec:
           command: ["sh", "-c", "until nc -z mysql 3306; do echo waiting for mysql; sleep 3; done"]
       containers:
         - name: complaintbox
-          image: REGISTRY/complaintbox:IMAGE_TAG   # replaced by your Jenkins sed step
+          image: vishnumadhu13/complaintbox:5
           ports:
             - containerPort: 8000
           env:
