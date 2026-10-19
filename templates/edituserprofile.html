@@ -1,0 +1,57 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+<link href="{% static 'css/registrationstyle.css' %}"
+  rel="stylesheet">
+<div class="testbox">
+  <h1>Registration</h1>
+
+  <form action="updates/{{res.id}}"
+    method="POST">
+    {% csrf_token %}
+    <hr>
+    <input type="file"
+      class="bg-white"
+      placeholder="upload image"
+      name="userphoto"
+      value="{{res.userphoto}}">
+    <label id="icon"
+      for="name"><i class="icon-envelope fa fa-envelope"></i></label>
+    <input type="text"
+      name="useremail"
+      id="useremail"
+      placeholder="Email"
+      value="{{res.useremail}}"
+      required />
+    <label id="icon"
+      for="name"><i class="icon-user fa fa-user"></i></label>
+    <input type="text"
+      name="username"
+      id="username"
+      placeholder="Name"
+      value="{{res.username}}"
+      required />
+    <label id="icon"
+      for="name"><i class="icon-phone fa fa-phone-alt"></i></label>
+    <input type="text"
+      name="phone"
+      id="phone"
+      placeholder="Telephone Number"
+      value="{{res.phone}}"
+      required />
+    <label id="icon"
+      for="name"><i class="icon-shield fa fa-key"></i></label>
+    <input type="password"
+      name="password"
+      id="password"
+      placeholder="Password"
+      value="{{res.password}}"
+      required />
+    <div class="text-center">
+      <button class="btn1"
+        type="submit">UPDATE</button>
+    </div>
+  </form>
+</div>
+{%include 'footer.html'%}
+{% endblock %}

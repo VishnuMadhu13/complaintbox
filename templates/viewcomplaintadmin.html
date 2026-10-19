@@ -1,0 +1,33 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+<div class="container">
+  <table class="table table-striped table-primary mt-5">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">COMPLAINTTO</th>
+        <th scope="col">DATE</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">MESSAGE</th>
+        <th scope="col">STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in res1 %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.complaintto}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.complaintmesg}}</td>
+        <td>{{i.status}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{%include 'footer.html'%}
+{% endblock %}
