@@ -21,7 +21,7 @@ spec:
           command: ["sh", "-c", "until nc -z mysql 3306; do echo waiting for mysql; sleep 3; done"]
       containers:
         - name: complaintbox
-          image: vishnumadhu13/complaintbox:6
+          image: vishnumadhu13/complaintbox:8
           ports:
             - containerPort: 8000
           env:
