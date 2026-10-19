@@ -190,8 +190,8 @@ pipeline {
             git config user.email "vishnumadhu04723@gmail.com"
             git config user.name  "VishnuMadhu13"
             git checkout -B $GIT_BRANCH                      # leave detached HEAD
-            sed -i "s|image: .*complaintbox.*|image: vishnumadhu13/complaintbox:${IMAGE_TAG}|" k8s/appdeployments.yaml
-            git add $APP_DIR/k8s/appdeployments.yaml
+            sed -i "s|image: .*complaintbox.*|image: vishnumadhu13/complaintbox:${IMAGE_TAG}|" k8s/deployments.yaml
+            git add $APP_DIR/k8s/deployments.yaml
             git commit -m "ci: deploy $IMAGE_REPO:$IMAGE_TAG [skip ci]" || echo "nothing to commit"
             git push https://$GIT_USER:$GIT_TOKEN@$GIT_REPO $GIT_BRANCH
           '''
