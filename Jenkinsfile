@@ -25,7 +25,7 @@ pipeline {
     GIT_REPO          = 'github.com/VishnuMadhu13/complaintbox.git'
     GIT_BRANCH        = 'main'
     JENKINS_CONTAINER = 'ubuntu-jenkins-1'
-    SONAR_HOST_URL    = 'http://3.25.89.189:9000'           // compose service name of SonarQube
+    SONAR_HOST_URL    = 'http://32.236.227.85/:9000'           // compose service name of SonarQube
     // --------------------
     IMAGE_TAG         = "${BUILD_NUMBER}"
     DAST_NET          = "dast-net-${BUILD_NUMBER}"
